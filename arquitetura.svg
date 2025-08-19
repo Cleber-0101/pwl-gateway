@@ -1,0 +1,110 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definição de estilos -->
+  <style>
+    .box { fill: #f0f0f0; stroke: #333; stroke-width: 2; }
+    .microservice { fill: #d4e6f1; stroke: #2874a6; stroke-width: 2; }
+    .database { fill: #d5f5e3; stroke: #1e8449; stroke-width: 2; }
+    .external { fill: #fdebd0; stroke: #d35400; stroke-width: 2; }
+    .security { fill: #ebdef0; stroke: #8e44ad; stroke-width: 2; }
+    .text { font-family: Arial; font-size: 12px; fill: #333; text-anchor: middle; }
+    .title { font-family: Arial; font-size: 14px; font-weight: bold; fill: #333; text-anchor: middle; }
+    .layer { font-family: Arial; font-size: 16px; font-weight: bold; fill: #333; text-anchor: middle; }
+    .arrow { stroke: #333; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+  </style>
+  
+  <!-- Definição de marcadores para setas -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Título do diagrama -->
+  <text x="400" y="30" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle">Arquitetura do Gateway de Pagamento White Label</text>
+  
+  <!-- Camada de Cliente/Front-End -->
+  <rect x="50" y="60" width="700" height="100" rx="5" class="box" opacity="0.3" />
+  <text x="400" y="80" class="layer">Camada de Cliente / Front-End</text>
+  
+  <rect x="100" y="100" width="120" height="40" rx="5" class="microservice" />
+  <text x="160" y="125" class="text">Checkout Transparente</text>
+  
+  <rect x="250" y="100" width="120" height="40" rx="5" class="microservice" />
+  <text x="310" y="125" class="text">Área de Membros</text>
+  
+  <rect x="400" y="100" width="120" height="40" rx="5" class="microservice" />
+  <text x="460" y="125" class="text">Painel de Produtos</text>
+  
+  <rect x="550" y="100" width="120" height="40" rx="5" class="microservice" />
+  <text x="610" y="125" class="text">Painel Admin</text>
+  
+  <!-- Camada de API/Back-End -->
+  <rect x="50" y="180" width="700" height="140" rx="5" class="box" opacity="0.3" />
+  <text x="400" y="200" class="layer">Camada de API / Back-End</text>
+  
+  <rect x="100" y="220" width="120" height="40" rx="5" class="microservice" />
+  <text x="160" y="245" class="text">API de Pagamentos</text>
+  
+  <rect x="250" y="220" width="120" height="40" rx="5" class="microservice" />
+  <text x="310" y="245" class="text">API de Membros</text>
+  
+  <rect x="400" y="220" width="120" height="40" rx="5" class="microservice" />
+  <text x="460" y="245" class="text">API de Produtos</text>
+  
+  <rect x="550" y="220" width="120" height="40" rx="5" class="microservice" />
+  <text x="610" y="245" class="text">API de Relatórios</text>
+  
+  <rect x="100" y="270" width="570" height="40" rx="5" class="security" />
+  <text x="385" y="295" class="text">Camada de Segurança (Autenticação, Autorização, Tokenização)</text>
+  
+  <!-- Camada de Banco de Dados -->
+  <rect x="50" y="340" width="700" height="80" rx="5" class="box" opacity="0.3" />
+  <text x="400" y="360" class="layer">Camada de Banco de Dados</text>
+  
+  <rect x="100" y="370" width="120" height="40" rx="5" class="database" />
+  <text x="160" y="395" class="text">PostgreSQL</text>
+  
+  <rect x="250" y="370" width="120" height="40" rx="5" class="database" />
+  <text x="310" y="395" class="text">MongoDB</text>
+  
+  <rect x="400" y="370" width="120" height="40" rx="5" class="database" />
+  <text x="460" y="395" class="text">Redis (Cache)</text>
+  
+  <!-- Camada de Integrações Externas -->
+  <rect x="50" y="440" width="700" height="80" rx="5" class="box" opacity="0.3" />
+  <text x="400" y="460" class="layer">Camada de Integrações Externas</text>
+  
+  <rect x="100" y="470" width="120" height="40" rx="5" class="external" />
+  <text x="160" y="495" class="text">Inovpay</text>
+  
+  <rect x="250" y="470" width="120" height="40" rx="5" class="external" />
+  <text x="310" y="495" class="text">Mercado Pago</text>
+  
+  <rect x="400" y="470" width="120" height="40" rx="5" class="external" />
+  <text x="460" y="495" class="text">ClearSale</text>
+  
+  <rect x="550" y="470" width="120" height="40" rx="5" class="external" />
+  <text x="610" y="495" class="text">AWS S3</text>
+  
+  <!-- Camada de Infraestrutura -->
+  <rect x="50" y="540" width="700" height="40" rx="5" class="box" opacity="0.3" />
+  <text x="400" y="565" class="layer">Infraestrutura: Docker/Kubernetes, AWS/Google Cloud</text>
+  
+  <!-- Conexões entre camadas -->
+  <!-- Front-End para Back-End -->
+  <path d="M160 140 L160 220" class="arrow" />
+  <path d="M310 140 L310 220" class="arrow" />
+  <path d="M460 140 L460 220" class="arrow" />
+  <path d="M610 140 L610 220" class="arrow" />
+  
+  <!-- Back-End para Banco de Dados -->
+  <path d="M160 260 L160 370" class="arrow" />
+  <path d="M310 260 L310 370" class="arrow" />
+  <path d="M460 260 L460 370" class="arrow" />
+  
+  <!-- Back-End para Integrações Externas -->
+  <path d="M160 310 L160 470" class="arrow" />
+  <path d="M250 310 L250 470" class="arrow" />
+  <path d="M400 310 L400 470" class="arrow" />
+  <path d="M550 310 L550 470" class="arrow" />
+</svg>
