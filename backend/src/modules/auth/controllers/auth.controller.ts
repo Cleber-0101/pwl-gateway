@@ -5,7 +5,7 @@ export interface LoginRequest {
   username: string;
   password: string;
 }
-
+//Isso é um contrato toda Api precisa ter esses dados para poder usar a interface
 export interface User {
   id: string;
   username: string;
